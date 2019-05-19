@@ -1,0 +1,92 @@
+﻿<Window x:Class="_26._05.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_26._05"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <FlowDocumentReader x:Name="FDR" Margin="0,169,0,0">
+            <FlowDocument>
+                <Paragraph>
+                    <Span>
+                        <Bold FontSize="14">Расписка в получении денежных средств</Bold>
+                        <LineBreak/>
+
+                        <Bold FontSize="12" Block.TextAlignment="Left" >г.</Bold>
+                        <TextBlock Text="{Binding Path=Text, ElementName=city}"/>
+
+                        <Bold FontSize="12">"
+                            <TextBlock Text="{Binding Path=Text, ElementName=Day}"/> "
+                        </Bold>
+
+                        <Bold FontSize="12">
+                            <TextBlock Text="{Binding Path=Text, ElementName=month}"/>
+                        </Bold>
+
+                        <Bold FontSize="12">
+                            <TextBlock Text="{Binding Path=Text, ElementName=year}"/> г.
+                        </Bold>
+                        <LineBreak/>
+
+                        <Bold FontSize="12">Получатель Ф.И.О
+                            <TextBlock Text="{Binding Path=Text, ElementName=nameRecipient}"/>
+                        </Bold>
+
+                        <Bold FontSize="12">,получил от
+                            <TextBlock Text="{Binding Path=Text, ElementName=nameTheSender}"/>
+                        </Bold>
+                        <LineBreak/>
+
+                        <Bold FontSize="12">денежную сумму в размере
+                            <TextBlock Text="{Binding Path=Text, ElementName=Price}"/> рублей
+                        </Bold>
+                        <LineBreak/>
+
+                        <Bold FontSize="12">на срок
+                            <TextBlock Text="{Binding Path=Text, ElementName=period}"/>
+                        </Bold>
+                        <LineBreak/>
+
+                        <Bold FontSize="12">Подпись получителя
+                            <TextBlock Text="{Binding Path=Text, ElementName=recipientSignature}"/>
+                        </Bold>
+                        <LineBreak/>
+
+                        <Bold FontSize="12">Подпись отправителя
+                            <TextBlock Text="{Binding Path=Text, ElementName=senderSignature}"/>
+                        </Bold>
+                        <LineBreak/>
+                    </Span>
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentReader>
+
+        <TextBox Name="nameTheSender" HorizontalAlignment="Left" Height="23" Margin="377,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ф.И.О отправителя" HorizontalAlignment="Left" Margin="258,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.191,-0.775" Height="26"/>
+        <Label Content="Город" HorizontalAlignment="Left" Margin="14,38,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="city" HorizontalAlignment="Left" Height="23" Margin="57,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Месяц" HorizontalAlignment="Left" Margin="377,38,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="month" HorizontalAlignment="Left" Height="23" Margin="423,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="День" HorizontalAlignment="Left" Margin="198,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.14,0.423"/>
+        <TextBox Name="Day" HorizontalAlignment="Left" Height="23" Margin="236,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Год" HorizontalAlignment="Left" Margin="568,38,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="year" HorizontalAlignment="Left" Height="23" Margin="597,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ф.И.О получателя" HorizontalAlignment="Left" Margin="14,76,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="nameRecipient" HorizontalAlignment="Left" Height="23" Margin="127,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Денежная Сумма" HorizontalAlignment="Left" Margin="520,73,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="Price" HorizontalAlignment="Left" Height="23" Margin="630,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="На срок" HorizontalAlignment="Left" Margin="14,107,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="period" HorizontalAlignment="Left" Height="23" Margin="73,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label Content="Подпись получившего" HorizontalAlignment="Left" Margin="14,138,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="recipientSignature" HorizontalAlignment="Left" Height="23" Margin="154,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="senderSignature" HorizontalAlignment="Left" Height="23" Margin="447,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Подпись отправителя" HorizontalAlignment="Left" Margin="312,138,0,0" VerticalAlignment="Top"/>
+        <Menu Grid.ColumnSpan="2" Margin="0 0 740 390">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Печать" Command="{Binding PrintCommand}" Click="MenuItem_Click_1"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
